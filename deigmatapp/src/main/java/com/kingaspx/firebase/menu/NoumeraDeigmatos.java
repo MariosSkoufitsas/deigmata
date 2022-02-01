@@ -15,6 +15,15 @@ public class NoumeraDeigmatos {
     static String akaireoskarpos;
     static String spasmenes;
     static String poiotikaelatomata;
+    static String Brix;
+
+    public static String getBrix() {
+        return Brix;
+    }
+
+    public static void setBrix(String Brix) {
+        NoumeraDeigmatos.Brix = Brix;
+    }
 
     public NoumeraDeigmatos() {
     }

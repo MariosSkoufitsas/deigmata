@@ -5,6 +5,8 @@
  */
 package com.kingaspx.firebase.menu;
 
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author mario
@@ -36,6 +38,8 @@ public class eisagoghDedomenonFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         ekxoreshdedomenonButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        BrixTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,10 +58,16 @@ public class eisagoghDedomenonFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Brix");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 130, Short.MAX_VALUE)
+                .addComponent(ekxoreshdedomenonButton)
+                .addGap(119, 119, 119))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -71,18 +81,18 @@ public class eisagoghDedomenonFrame extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2))))
+                            .addComponent(jLabel2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(poiotikaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                     .addComponent(spasmenesTextField)
                     .addComponent(akaireoTextField)
-                    .addComponent(SynolikoTextField))
+                    .addComponent(SynolikoTextField)
+                    .addComponent(BrixTextField))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 127, Short.MAX_VALUE)
-                .addComponent(ekxoreshdedomenonButton)
-                .addGap(122, 122, 122))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,9 +113,13 @@ public class eisagoghDedomenonFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(poiotikaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(BrixTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(ekxoreshdedomenonButton)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -120,7 +134,13 @@ public class eisagoghDedomenonFrame extends javax.swing.JFrame {
         noumeraDeigmatos.setAkaireoskarpos(akaireoTextField.getText().toString());
         noumeraDeigmatos.setSpasmenes(spasmenesTextField.getText().toString());
         noumeraDeigmatos.setPoiotikaelatomata(poiotikaTextField.getText().toString());
+        noumeraDeigmatos.setBrix(BrixTextField.getText().toString());
+        
         Menu.eisagoghData();
+        
+        setVisible(false);
+        
+        
 
 // TODO add your handling code here:
     }//GEN-LAST:event_ekxoreshdedomenonButtonActionPerformed
@@ -161,6 +181,7 @@ public class eisagoghDedomenonFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField BrixTextField;
     private javax.swing.JTextField SynolikoTextField;
     private javax.swing.JTextField akaireoTextField;
     private javax.swing.JButton ekxoreshdedomenonButton;
@@ -168,6 +189,7 @@ public class eisagoghDedomenonFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField poiotikaTextField;
     private javax.swing.JTextField spasmenesTextField;
     // End of variables declaration//GEN-END:variables

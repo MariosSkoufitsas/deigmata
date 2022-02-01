@@ -23,7 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
+              <Component id="ekxoreshdedomenonButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -42,6 +47,10 @@
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" pref="35" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -49,13 +58,9 @@
                   <Component id="spasmenesTextField" alignment="0" max="32767" attributes="0"/>
                   <Component id="akaireoTextField" alignment="0" max="32767" attributes="0"/>
                   <Component id="SynolikoTextField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="BrixTextField" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="127" max="32767" attributes="0"/>
-              <Component id="ekxoreshdedomenonButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,9 +87,14 @@
                   <Component id="poiotikaTextField" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="BrixTextField" min="-2" pref="28" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
               <Component id="ekxoreshdedomenonButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -125,6 +135,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ekxoreshdedomenonButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Brix"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="BrixTextField">
     </Component>
   </SubComponents>
 </Form>

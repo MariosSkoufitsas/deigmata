@@ -5,6 +5,7 @@
  */
 package com.kingaspx.firebase.menu;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,13 +46,11 @@ public class Menu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         eisagwghSteixeionButton = new javax.swing.JButton();
-        poiotikaLabel = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        ksenesYlesLabel = new javax.swing.JLabel();
+        PoiotikaElatomataLabel = new javax.swing.JLabel();
+        AkaireoiKarpoiLabel = new javax.swing.JLabel();
         eisagwghDedomenonButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        YpologismosPosostonButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -98,21 +97,21 @@ public class Menu extends javax.swing.JFrame {
         poiotikaLabel.setText("0");
         poiotikaLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("0");
-        jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ksenesYlesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ksenesYlesLabel.setText("0");
+        ksenesYlesLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("0");
-        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PoiotikaElatomataLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PoiotikaElatomataLabel.setText("0");
+        PoiotikaElatomataLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("0");
-        jLabel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AkaireoiKarpoiLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AkaireoiKarpoiLabel.setText("0");
+        AkaireoiKarpoiLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("0");
-        jLabel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BrixLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BrixLabel.setText("0");
+        BrixLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         eisagwghDedomenonButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         eisagwghDedomenonButton.setText("Εισαγωγή Δεδομένων");
@@ -122,8 +121,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Υπολογισμός Ποσοστών");
+        YpologismosPosostonButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        YpologismosPosostonButton.setText("Υπολογισμός Ποσοστών");
+        YpologismosPosostonButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                YpologismosPosostonButtonActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setText("Βάση");
@@ -160,13 +164,13 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ksenesYlesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(121, 121, 121)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PoiotikaElatomataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(BrixLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(poiotikaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -214,7 +218,7 @@ public class Menu extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(27, 27, 27)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(AkaireoiKarpoiLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(akaireosLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(128, 128, 128)
@@ -228,7 +232,7 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(306, 306, 306))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(165, 165, 165)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(YpologismosPosostonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58))))
@@ -275,15 +279,15 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLabel19))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ksenesYlesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PoiotikaElatomataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AkaireoiKarpoiLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BrixLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(eisagwghDedomenonButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(YpologismosPosostonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(43, 43, 43))
         );
@@ -302,6 +306,62 @@ public class Menu extends javax.swing.JFrame {
         eisagoghDedomenonFrame eisagogh_DedomenonFrame= new eisagoghDedomenonFrame();
         eisagogh_DedomenonFrame.setVisible(true);
     }//GEN-LAST:event_eisagwghDedomenonButtonActionPerformed
+Paragogos paragogos;
+    private void YpologismosPosostonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YpologismosPosostonButtonActionPerformed
+        double sum=0.0;
+        
+        paragogos = new Paragogos();
+        
+        double akaireos, spasmenes, poiotika, synoliko;
+        akaireos=Double.parseDouble(akaireosLabel.getText());
+        spasmenes=Double.parseDouble(spasmenesLabel.getText());
+        poiotika =Double.parseDouble(poiotikaLabel.getText());
+        synoliko = Double.parseDouble(synolikodeigmaLabel.getText());
+        sum= (((synoliko-(akaireos+spasmenes+poiotika))/synoliko ))*100 ; 
+        String summ = String.valueOf(sum);
+        paragogos.setPosostoKsenesYles(summ);
+        ksenesYlesLabel.setText( summ);
+        
+        double PE, AK;
+        AK=(akaireos/(akaireos+spasmenes+poiotika))*100;
+        summ=String.valueOf(AK);
+        paragogos.setPosostoSkaireoi(summ);
+        AkaireoiKarpoiLabel.setText(summ);
+        
+        PE=(poiotika/(akaireos+spasmenes+poiotika))*100;
+        summ=String.valueOf(PE);
+        paragogos.setPosostoSoiotika(summ);
+        PoiotikaElatomataLabel.setText(summ);
+        
+        paragogos.setBrix(BrixLabel.getText());
+        
+        
+        
+        
+        
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        databaseRefe = database.getReference(ptTextField.getText());
+                
+                
+                
+                
+                databaseRefe.push().setValue(paragogos, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError de, DatabaseReference dr) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+                
+                
+                
+                
+        
+        
+        
+
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_YpologismosPosostonButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,14 +401,15 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AkaireoiKarpoiLabel;
+    public static final javax.swing.JLabel BrixLabel = new javax.swing.JLabel();
+    private javax.swing.JLabel PoiotikaElatomataLabel;
+    private javax.swing.JButton YpologismosPosostonButton;
     public static final javax.swing.JLabel akaireosLabel = new javax.swing.JLabel();
     private javax.swing.JButton eisagwghDedomenonButton;
     private javax.swing.JButton eisagwghSteixeionButton;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -359,10 +420,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel ksenesYlesLabel;
     private javax.swing.JTextField onomateponymoTextField;
-    private javax.swing.JLabel poiotikaLabel;
+    public static final javax.swing.JLabel poiotikaLabel = new javax.swing.JLabel();
     private javax.swing.JTextField ptTextField;
     public static final javax.swing.JLabel spasmenesLabel = new javax.swing.JLabel();
     public static final javax.swing.JLabel synolikodeigmaLabel = new javax.swing.JLabel();
@@ -375,6 +435,13 @@ public class Menu extends javax.swing.JFrame {
         synolikodeigmaLabel.setText(noumeraDeigmatos.getSynolikodeigma());
         akaireosLabel.setText(noumeraDeigmatos.getAkaireoskarpos());
         spasmenesLabel.setText(noumeraDeigmatos.getSpasmenes());
+        poiotikaLabel.setText(noumeraDeigmatos.getPoiotikaelatomata());
+        BrixLabel.setText(noumeraDeigmatos.getBrix());
+        
+        
+            
+           
+        
         
     
     }
