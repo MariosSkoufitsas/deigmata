@@ -11,6 +11,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import static com.kingaspx.firebase.util.Common.initFirebase;
 
 /**
@@ -340,17 +341,45 @@ Paragogos paragogos;
         
         
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        databaseRefe = database.getReference(ptTextField.getText());
-                
-                
-                
-                
-                databaseRefe.push().setValue(paragogos, new DatabaseReference.CompletionListener() {
+        
+        
+        
+        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("akaireoiKarpoi");
+        databaseRefe
+        .setValue(paragogos.getPosostoSkaireoi(), new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError de, DatabaseReference dr) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
             }
         });
+        
+        
+        
+        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("spasmenes");
+        databaseRefe
+        .setValue(paragogos.getPosostoSpasmenes(), new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError de, DatabaseReference dr) {
+                
+            }
+        });
+        paragogos.setFlag("Yes");
+        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("flag");
+        databaseRefe
+        .setValue(paragogos.getFlag(), new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError de, DatabaseReference dr) {
+                
+            }
+        });
+        
+        
+        
+                
+                
+                
+                
+                
                 
                 
                 
@@ -450,30 +479,31 @@ Paragogos paragogos;
         
         private void eisagoghStoixeion(){
             
-            databaseRefe= FirebaseDatabase.getInstance().getReference(ptTextField.getText());
-            databaseRefe.addChildEventListener(new ChildEventListener() {
+            
+            
+            
+            databaseRefe= FirebaseDatabase.getInstance().getReference(ptTextField.getText()).child("paragogos");
+            databaseRefe.addValueEventListener(new  ValueEventListener() {
                 @Override
-                public void onChildAdded(DataSnapshot ds, String string) {
-                   String name = ds.child("onomateponymo").getValue().toString();
-                   onomateponymoTextField.setText(name);
+                public void onDataChange(DataSnapshot ds) {
+                    String name = ds.child("name").getValue().toString();
+                   
                    String pt = ds.child("pt").getValue().toString();
                    ptTextField.setText(pt);
-
-                }
-
-                @Override
-                public void onChildChanged(DataSnapshot ds, String string) {
-                    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                }
-
-                @Override
-                public void onChildRemoved(DataSnapshot ds) {
-                    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                }
-
-                @Override
-                public void onChildMoved(DataSnapshot ds, String string) {
-                    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                   
+                   onomateponymoTextField.setText(name);
+                   
+                   String fla = ds.child("flag").getValue().toString();
+                   if(fla.equals("Yes")){
+        
+                        YpologismosPosostonButton.setEnabled(false);
+                 }
+                   else{
+                       YpologismosPosostonButton.setEnabled(true);
+                   }
+                   
+                   
+                   
                 }
 
                 @Override
@@ -481,6 +511,10 @@ Paragogos paragogos;
                     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
                 }
             });
+            
+            
+            
+            
             
         
             
