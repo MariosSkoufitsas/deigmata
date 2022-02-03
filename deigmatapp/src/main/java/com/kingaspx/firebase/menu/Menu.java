@@ -355,14 +355,36 @@ Paragogos paragogos;
         
         
         
-        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("spasmenes");
+        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("ksenesYles");
         databaseRefe
-        .setValue(paragogos.getPosostoSpasmenes(), new DatabaseReference.CompletionListener() {
+        .setValue(paragogos.getPosostoKsenesYles(), new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError de, DatabaseReference dr) {
                 
             }
         });
+        
+        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("poiotika");
+        databaseRefe
+        .setValue(paragogos.getPosostoSoiotika(), new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError de, DatabaseReference dr) {
+                
+            }
+        });
+        
+        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("brix");
+        databaseRefe
+        .setValue(paragogos.getBrix(), new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError de, DatabaseReference dr) {
+                
+            }
+        });
+        
+        
+        
+        
         paragogos.setFlag("Yes");
         databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("flag");
         databaseRefe
@@ -486,12 +508,25 @@ Paragogos paragogos;
             databaseRefe.addValueEventListener(new  ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot ds) {
-                    String name = ds.child("name").getValue().toString();
-                   
+                   String name = ds.child("name").getValue().toString();
+                   onomateponymoTextField.setText(name);
+                    
                    String pt = ds.child("pt").getValue().toString();
                    ptTextField.setText(pt);
                    
-                   onomateponymoTextField.setText(name);
+                   String akaireoi = ds.child("akaireoiKarpoi").getValue().toString();
+                   AkaireoiKarpoiLabel.setText(akaireoi);
+                   
+                   String ksenesYles = ds.child("ksenesYles").getValue().toString();
+                   ksenesYlesLabel.setText(ksenesYles);
+                   
+                   String poiotika = ds.child("poiotika").getValue().toString();
+                   PoiotikaElatomataLabel.setText(poiotika);
+                   
+                   String brix = ds.child("brix").getValue().toString();
+                   BrixLabel.setText(brix);
+                   
+                   
                    
                    String fla = ds.child("flag").getValue().toString();
                    if(fla.equals("Yes")){
@@ -511,13 +546,6 @@ Paragogos paragogos;
                     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
                 }
             });
-            
-            
-            
-            
-            
-        
-            
         }
     
 
