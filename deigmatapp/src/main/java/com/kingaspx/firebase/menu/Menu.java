@@ -344,7 +344,7 @@ Paragogos paragogos;
         
         
         
-        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("akaireoiKarpoi");
+        databaseRefe = database.getReference("stoixeia").child(ptTextField.getText()).child("paragogos").child("akaireoiKarpoi");
         databaseRefe
         .setValue(paragogos.getPosostoSkaireoi(), new DatabaseReference.CompletionListener() {
             @Override
@@ -355,7 +355,7 @@ Paragogos paragogos;
         
         
         
-        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("ksenesYles");
+        databaseRefe = database.getReference("stoixeia").child(ptTextField.getText()).child("paragogos").child("ksenesYles");
         databaseRefe
         .setValue(paragogos.getPosostoKsenesYles(), new DatabaseReference.CompletionListener() {
             @Override
@@ -364,7 +364,7 @@ Paragogos paragogos;
             }
         });
         
-        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("poiotika");
+        databaseRefe = database.getReference("stoixeia").child(ptTextField.getText()).child("paragogos").child("poiotika");
         databaseRefe
         .setValue(paragogos.getPosostoSoiotika(), new DatabaseReference.CompletionListener() {
             @Override
@@ -373,7 +373,7 @@ Paragogos paragogos;
             }
         });
         
-        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("brix");
+        databaseRefe = database.getReference("stoixeia").child(ptTextField.getText()).child("paragogos").child("brix");
         databaseRefe
         .setValue(paragogos.getBrix(), new DatabaseReference.CompletionListener() {
             @Override
@@ -386,7 +386,7 @@ Paragogos paragogos;
         
         
         paragogos.setFlag("Yes");
-        databaseRefe = database.getReference(ptTextField.getText()).child("paragogos").child("flag");
+        databaseRefe = database.getReference("stoixeia").child(ptTextField.getText()).child("paragogos").child("flag");
         databaseRefe
         .setValue(paragogos.getFlag(), new DatabaseReference.CompletionListener() {
             @Override
@@ -504,7 +504,7 @@ Paragogos paragogos;
             
             
             
-            databaseRefe= FirebaseDatabase.getInstance().getReference(ptTextField.getText()).child("paragogos");
+            databaseRefe= FirebaseDatabase.getInstance().getReference("stoixeia").child(ptTextField.getText()).child("paragogos");
             databaseRefe.addValueEventListener(new  ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot ds) {
