@@ -13,6 +13,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import static com.kingaspx.firebase.util.Common.initFirebase;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  *
@@ -315,22 +317,33 @@ Paragogos paragogos;
         
         double akaireos, spasmenes, poiotika, synoliko;
         akaireos=Double.parseDouble(akaireosLabel.getText());
+        
+        
         spasmenes=Double.parseDouble(spasmenesLabel.getText());
         poiotika =Double.parseDouble(poiotikaLabel.getText());
         synoliko = Double.parseDouble(synolikodeigmaLabel.getText());
-        sum= (((synoliko-(akaireos+spasmenes+poiotika))/synoliko ))*100 ; 
-        String summ = String.valueOf(sum);
+        sum= (((synoliko-(akaireos+spasmenes+poiotika))/synoliko ))*100 ;
+        BigDecimal bd = new BigDecimal(sum).setScale(2, RoundingMode.HALF_UP);
+        double newInput = bd.doubleValue();
+        String summ = String.valueOf(newInput);
         paragogos.setPosostoKsenesYles(summ);
         ksenesYlesLabel.setText( summ);
         
         double PE, AK;
         AK=(akaireos/(akaireos+spasmenes+poiotika))*100;
-        summ=String.valueOf(AK);
+        BigDecimal bd2 = new BigDecimal(AK).setScale(2, RoundingMode.HALF_UP);
+        double newInput2 = bd2.doubleValue();
+        summ=String.valueOf(newInput2);
+        
         paragogos.setPosostoSkaireoi(summ);
         AkaireoiKarpoiLabel.setText(summ);
         
         PE=(poiotika/(akaireos+spasmenes+poiotika))*100;
-        summ=String.valueOf(PE);
+        BigDecimal bd3 = new BigDecimal(PE).setScale(2, RoundingMode.HALF_UP);
+        double newInput3 = bd3.doubleValue();
+        
+        
+        summ=String.valueOf(newInput3);
         paragogos.setPosostoSoiotika(summ);
         PoiotikaElatomataLabel.setText(summ);
         
